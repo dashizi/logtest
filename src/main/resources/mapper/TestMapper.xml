@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.example.log.dao.TestDao">
+    <resultMap id="BaseResultMapper" type="com.example.log.entity.Test">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="age" jdbcType="INTEGER" property="age" />
+    </resultMap>
+
+    <select id="findAllLogs" resultMap="BaseResultMapper">
+        select *
+        from tbl_user
+    </select>
+
+    <insert id="save">
+        insert into tbl_user (name, age)
+        value (#{name}, #{age})
+    </insert>
+</mapper>
