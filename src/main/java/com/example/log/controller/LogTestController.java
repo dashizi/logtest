@@ -1,26 +1,24 @@
 package com.example.log.controller;
 
-import com.example.log.entity.Test;
-import com.example.log.service.TestService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Map;
-
 @RestController
 public class LogTestController {
-    @Autowired
-    private TestService testService;
+
+    private static final Logger logger  = LoggerFactory.getLogger(LogTestController.class);
 
     @GetMapping("/logs")
-    public Map findLogs(){
-        Test test = new Test();
-        test.setName("测试");
-        test.setAge(17);
-        testService.save(test);
-        List<Test> list = testService.findAllLogs();
-        return null;
+    public String findLogs(){
+        logger.info("测试SLF4J");
+        try {
+            float i = 1 / 0;
+        }catch (Exception e){
+            e.printStackTrace();
+            logger.error("错误： {}", e);
+        }
+        return "Hello World !";
     }
 }

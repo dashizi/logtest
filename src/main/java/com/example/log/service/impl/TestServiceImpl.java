@@ -12,17 +12,17 @@ import java.util.List;
 @Service
 @Transactional
 public class TestServiceImpl implements TestService {
-    @Resource
-    private TestDao testDao;
+//    @Resource
+//    private TestDao testDao;
 
     @Override
     public List<Test> findAllLogs() {
-        List<Test> list = testDao.findAllLogs();
-        return list;
+//        List<Test> list = testDao.findAllLogs();
+        return null;
     }
 
     @Override
     public void save(Test test){
-        testDao.save(test);
+//        testDao.save(test);
     }
 }
