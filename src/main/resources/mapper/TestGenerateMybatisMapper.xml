@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.log.dao.TestGenerateMybatisMapper">
+  <resultMap id="BaseResultMap" type="com.example.log.entity.TestGenerateMybatis">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="generate_date" jdbcType="TIMESTAMP" property="generateDate" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="is_valid" jdbcType="BIGINT" property="isValid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from test_generate_mybatis
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.log.entity.TestGenerateMybatis">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into test_generate_mybatis (id, generate_date, description, 
+      is_valid)
+    values (#{id,jdbcType=BIGINT}, #{generateDate,jdbcType=TIMESTAMP}, #{description,jdbcType=VARCHAR}, 
+      #{isValid,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.log.entity.TestGenerateMybatis">
+    update test_generate_mybatis
+    set generate_date = #{generateDate,jdbcType=TIMESTAMP},
+      description = #{description,jdbcType=VARCHAR},
+      is_valid = #{isValid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+
+    select id, generate_date, description, is_valid
+    from test_generate_mybatis
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, generate_date, description, is_valid
+    from test_generate_mybatis
+  </select>
+</mapper>
