@@ -8,3 +8,9 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.example.log.entity
 
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:/mapper/*.xml
+
+

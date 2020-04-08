@@ -1,13 +1,23 @@
 package com.example.log.entity;
 
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+
 import java.time.LocalDateTime;
+import java.util.Date;
+
+@TableName("test_generate_mybatis")
 public class TestGenerateMybatis {
+    @TableId
     private Long id;
 
+    @TableField("generate_date")
     private LocalDateTime generateDate;
 
     private String description;
 
+    @TableField("is_valid")
     private Long isValid;
 
     public Long getId() {

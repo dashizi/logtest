@@ -33,7 +33,7 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-        <table tableName="test_generate_mybatis">
+        <table tableName="tbl_user">
             <generatedKey column="id" sqlStatement="MySql"/>
         </table>
 
