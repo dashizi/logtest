@@ -37,6 +37,9 @@ public class LogTestController {
             }
             TestGenerateMybatis testGenerateMybatis = testGenerateMybatisMapper.selectById(1L);
             logger.info("对象内容: [{}], [{}]", testGenerateMybatis.getDescription(), testGenerateMybatis.getGenerateDate());
+            logger.info("====================================================================================================");
+            logger.info("jenkins");
+            logger.info("====================================================================================================");
         }catch (Exception e){
             e.printStackTrace();
             logger.error("错误： {}", e);
